@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 
 function RecordSaleForm() {
   const [autos, setAutomobile] = useState([]);
-  const [records, setRecords] = useState([]);
-  const [unsold_vehicles, setUnsoldVehicles] = useState([]);
   const [sales, setSales] = useState([]);
   const [customer, setCustomer] = useState([]);
   const [sale_price, setSalesPrice] = useState([]);
@@ -14,35 +12,40 @@ function RecordSaleForm() {
     sale_price: "",
   });
 
+  // get all unsold vehicles
   const getAutos = async () => {
-    const url = "http://localhost:8100/api/automobiles/";
-    const response = await fetch(url);
     var vehs = [];
     var sold_vehs = [];
+    // get all vehicles
+    const url = "http://localhost:8100/api/automobiles/";
+    const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      console.log("autos:", data.autos);
       vehs = [...data.autos];
-      // setAutomobile(data.autos);
     }
 
+    // get all salerecords
     const sold_url = "http://localhost:8090/api/salesrecord/";
     const resp = await fetch(sold_url);
 
     if (resp.ok) {
       const data = await resp.json();
       sold_vehs = [...data.salesrecord];
-      // setRecords(data.salesrecord);
       const sold = [];
+
+      // create a list of VIN of sold cars
       for (let index = 0; index < data.salesrecord.length; index++) {
         const sale = data.salesrecord[index];
         sold.push(sale.automobile.vin);
       }
 
       const unsold = [];
+
+      // loop through all vehicle records and copare the VINS with the VINs on the sold list
+
       for (let index = 0; index < vehs.length; index++) {
         const element = vehs[index];
-        console.log(element);
+        // if the vehicleVIN is not in sold list then I add it to the unsold list
         if (!sold.includes(element.vin)) {
           unsold.push(element);
         }
@@ -56,35 +59,6 @@ function RecordSaleForm() {
     getAutos();
   }, []);
 
-  const getRecords = async () => {
-    const url = "http://localhost:8090/api/salesrecord/";
-    const response = await fetch(url);
-
-    if (response.ok) {
-      const data = await response.json();
-      setRecords(data.salesrecord);
-      const sold = [];
-      for (let index = 0; index < data.salesrecord.length; index++) {
-        const sale = data.salesrecord[index];
-        sold.push(sale.automobile.vin);
-      }
-      const unsold = [];
-      console.log("all ", autos);
-      for (let index = 0; index < autos.length; index++) {
-        const element = autos[index];
-        console.log(element);
-        if (!sold.includes(element.vin)) {
-          unsold.push(element);
-        }
-      }
-      console.log("unsold", unsold);
-      setUnsoldVehicles(unsold);
-    }
-  };
-
-  useEffect(() => {
-    getRecords();
-  }, []);
 
   const getSales = async () => {
     const url = "http://localhost:8090/api/salesperson/";
@@ -227,7 +201,7 @@ function RecordSaleForm() {
                   <input
                     onChange={handleChangeName}
                     value={formData.sale_price}
-                    placeholder="Maximum attendees"
+                    placeholder="sale price"
                     required
                     type="number"
                     name="sale_price"
