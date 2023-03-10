@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function VehicleForm() {
+function VehicleModelForm() {
   const [manufacturers, setManufacturer] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -82,4 +82,4 @@ function VehicleForm() {
   );
 }
 
-export default VehicleForm;
+export default VehicleModelForm;
