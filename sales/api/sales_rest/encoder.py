@@ -2,9 +2,10 @@ from common.json import ModelEncoder
 
 from sales_rest.models import SalesPerson, Customer, SalesRecord, AutomobileVO
 
+
 class SalesPersonEncoder(ModelEncoder):
     model = SalesPerson
-    properties = ["id", "name", "employee_number" ]
+    properties = ["id", "name", "employee_number"]
 
 
 class AutomobileVOEncoder(ModelEncoder):

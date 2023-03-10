@@ -7,7 +7,7 @@ from .encoder import (
     CustomerListEncoder,
     CustomerDetailEncoder,
     SalesRecordEncoder,
-    AutomobileVOEncoder
+    AutomobileVOEncoder,
 )
 
 from .models import SalesPerson, Customer, SalesRecord, AutomobileVO
@@ -25,10 +25,10 @@ def api_list_salesperson(request):
         content = json.loads(request.body)
         salesperson = SalesPerson.objects.create(**content)
         return JsonResponse(
-                salesperson,
-                encoder=SalesPersonEncoder,
-                safe=False,
-            )
+            salesperson,
+            encoder=SalesPersonEncoder,
+            safe=False,
+        )
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
@@ -36,11 +36,7 @@ def api_detail_salesperson(request, employee_number):
     if request.method == "GET":
         try:
             salesperson = SalesPerson.objects.get(employee_number=employee_number)
-            return JsonResponse(
-                salesperson,
-                encoder=SalesPersonEncoder,
-                safe=False
-            )
+            return JsonResponse(salesperson, encoder=SalesPersonEncoder, safe=False)
         except SalesPerson.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
@@ -56,7 +52,7 @@ def api_detail_salesperson(request, employee_number):
             )
         except SalesPerson.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:  # PUT
         try:
             content = json.loads(request.body)
             salesperson = SalesPerson.objects.get(employee_number=employee_number)
@@ -76,6 +72,7 @@ def api_detail_salesperson(request, employee_number):
             response.status_code = 404
             return response
 
+
 @require_http_methods(["GET", "POST"])
 def api_list_customer(request):
     if request.method == "GET":
@@ -88,10 +85,10 @@ def api_list_customer(request):
         content = json.loads(request.body)
         customer = Customer.objects.create(**content)
         return JsonResponse(
-                customer,
-                encoder=CustomerDetailEncoder,
-                safe=False,
-            )
+            customer,
+            encoder=CustomerDetailEncoder,
+            safe=False,
+        )
 
 
 @require_http_methods(["DELETE", "GET"])
@@ -99,11 +96,7 @@ def api_detail_customer(request, id):
     if request.method == "GET":
         try:
             customer = Customer.objects.get(id=id)
-            return JsonResponse(
-                customer,
-                encoder=CustomerDetailEncoder,
-                safe=False
-            )
+            return JsonResponse(customer, encoder=CustomerDetailEncoder, safe=False)
         except Customer.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
@@ -133,7 +126,7 @@ def api_list_salesrecord(request):
         content = json.loads(request.body)
 
         try:
-            vin=content["automobile"]
+            vin = content["automobile"]
             automobile = AutomobileVO.objects.get(vin=vin)
             content["automobile"] = automobile
         except AutomobileVO.DoesNotExist:
@@ -141,6 +134,7 @@ def api_list_salesrecord(request):
                 {"message": "Automobile Does Not Exist"},
                 status=404,
             )
+
         try:
             employee_number = content["sales"]
             sales = SalesPerson.objects.get(employee_number=employee_number)
@@ -156,14 +150,15 @@ def api_list_salesrecord(request):
             content["customer"] = customer
 
         except Customer.DoesNotExist:
-                return JsonResponse(
-                    {"message": "Customer Does Not Exist"},
-                    status=404,
-                )
+            return JsonResponse(
+                {"message": "Customer Does Not Exist"},
+                status=404,
+            )
 
         salesrecord = SalesRecord.objects.create(**content)
-        return JsonResponse( {"salesrecord": salesrecord},
-            encoder= SalesRecordEncoder,
+        return JsonResponse(
+            {"salesrecord": salesrecord},
+            encoder=SalesRecordEncoder,
             safe=False,
         )
 
