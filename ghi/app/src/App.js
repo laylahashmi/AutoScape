@@ -4,6 +4,10 @@ import Nav from './Nav';
 import ManufacturerList from './manufacturerListForm';
 import VehicleModelList from './vehicleModelsList';
 import CreateManufacturerForm from './createManufacturerForm';
+import SalesPersonForm from './salesPersonForm';
+import CustomerForm from './customerForm';
+import SalesList from './salesList';
+import RecordSaleForm from './createNewRecordSale';
 
 function App(props) {
   return (
@@ -20,6 +24,16 @@ function App(props) {
 
             <Route path="models">
               <Route index element={<VehicleModelList />}/>
+            </Route>
+            <Route path="salesperson">
+              <Route path="new" element={<SalesPersonForm />}/>
+            </Route>
+            <Route path="customer">
+              <Route path="new" element={<CustomerForm />}/>
+            </Route>
+            <Route path="salesrecord">
+              <Route index element={<SalesList />}/>
+              <Route path="new" element={<RecordSaleForm />}/>
             </Route>
         </Routes>
       </div>

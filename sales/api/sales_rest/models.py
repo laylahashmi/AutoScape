@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from djmoney.models.fields import MoneyField
 
 # Create your models here.
 class AutomobileVO(models.Model):

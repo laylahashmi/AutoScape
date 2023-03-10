@@ -138,7 +138,7 @@ def api_list_salesrecord(request):
             content["automobile"] = automobile
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
-                {"message": "Do Not Exist"},
+                {"message": "Automobile Does Not Exist"},
                 status=404,
             )
         try:
@@ -147,7 +147,7 @@ def api_list_salesrecord(request):
             content["sales"] = sales
         except SalesPerson.DoesNotExist:
             return JsonResponse(
-                {"message": "Do Not Exist"},
+                {"message": "Sales Do Not Exist"},
                 status=404,
             )
         try:
@@ -157,7 +157,7 @@ def api_list_salesrecord(request):
 
         except Customer.DoesNotExist:
                 return JsonResponse(
-                    {"message": "Do Not Exist"},
+                    {"message": "Customer Does Not Exist"},
                     status=404,
                 )
 
@@ -166,3 +166,18 @@ def api_list_salesrecord(request):
             encoder= SalesRecordEncoder,
             safe=False,
         )
+
+
+@require_http_methods(["DELETE"])
+def api_delete_salesrecord(request, id):
+    if request.method == "DELETE":
+        try:
+            salesrecord = SalesRecord.objects.get(id=id)
+            salesrecord.delete()
+            return JsonResponse(
+                salesrecord,
+                encoder=SalesRecordEncoder,
+                safe=False,
+            )
+        except SalesRecord.DoesNotExist:
+            return JsonResponse({"message": "This record does not exist"})
