@@ -29,6 +29,7 @@ function Nav() {
                 Manufacturer Form
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -38,16 +39,19 @@ function Nav() {
                 Manufacturers
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/models/new">
                 Vehicle Model Form
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/models">
                 Vehicle Models
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -57,6 +61,7 @@ function Nav() {
                 SalesPerson Form
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -66,6 +71,7 @@ function Nav() {
                 Customer Form
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -75,6 +81,7 @@ function Nav() {
                 List all sale records
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -84,6 +91,7 @@ function Nav() {
                 Create a sale record
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -93,6 +101,7 @@ function Nav() {
                 Sale person history
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -102,6 +111,7 @@ function Nav() {
                 Show a List of Automobiles in inventory
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -111,6 +121,7 @@ function Nav() {
                 Create an Automobile in Inventory
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -119,6 +130,8 @@ function Nav() {
               >
                 Add a Technician
               </NavLink>
+              </li>
+
               <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -127,6 +140,8 @@ function Nav() {
               >
                 Appointment List
               </NavLink>
+              </li>
+
               <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -135,6 +150,8 @@ function Nav() {
               >
                 Enter an Appointment
               </NavLink>
+              </li>
+
               <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -144,9 +161,7 @@ function Nav() {
                 Appointment History
               </NavLink>
             </li>
-            </li>
-            </li>
-            </li>
+
           </ul>
         </div>
       </div>
