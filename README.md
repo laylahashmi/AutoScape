@@ -7,10 +7,11 @@ Team:
 
 ## Design
 
+We used bootstrap for the design.
+
 ## Service microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+My bounded context is services and the models in it were the AutomobileVO, Appointment, Technician.
 
 ## Sales microservice
 
