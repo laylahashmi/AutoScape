@@ -1,21 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
-import VehicleModelForm from './VehicleModelForm';
-import AutomobileList from './AutomobileList';
-import AutomobileForm from './AutomobileForm';
-import TechnicianForm from './TechnicianForm';
-import AppointmentList from './AppointmentList.js';
-import AppointmentForm from './AppointmentForm';
-import AppointmentHistory from './AppointmentHistory';
+import VehicleModelForm from './inventory/VehicleModelForm';
+import AutomobileList from './inventory/AutomobileList';
+import AutomobileForm from './inventory/AutomobileForm';
+import ManufacturerList from "./inventory/manufacturerListForm";
+import VehicleModelList from "./inventory/vehicleModelsList";
+import CreateManufacturerForm from "./inventory/createManufacturerForm";
+import TechnicianForm from './service/TechnicianForm';
+import AppointmentList from './service/AppointmentList.js';
+import AppointmentForm from './service/AppointmentForm';
+import AppointmentHistory from './service/AppointmentHistory';
 import Nav from "./Nav";
-import ManufacturerList from "./manufacturerListForm";
-import VehicleModelList from "./vehicleModelsList";
-import CreateManufacturerForm from "./createManufacturerForm";
-import SalesPersonForm from "./salesPersonForm";
-import CustomerForm from "./customerForm";
-import SalesList from "./salesList";
-import RecordSaleForm from "./createNewRecordSale";
-import SalesPersonHistoryForm from "./salesPersonHistory";
+import SalesPersonForm from "./sales/salesPersonForm";
+import CustomerForm from "./sales/customerForm";
+import SalesList from "./sales/salesList";
+import RecordSaleForm from "./sales/createNewRecordSale";
+import SalesPersonHistoryForm from "./sales/salesPersonHistory";
+
+
 
 function App(props) {
   return (
@@ -32,22 +34,23 @@ function App(props) {
 
           <Route path="models">
             <Route index element={<VehicleModelList />} />
+            <Route path="new" element={<VehicleModelForm />} />
           </Route>
+
           <Route path="salesperson">
             <Route path="new" element={<SalesPersonForm />} />
           </Route>
+
           <Route path="customer">
             <Route path="new" element={<CustomerForm />} />
           </Route>
+
           <Route path="salesrecord">
             <Route index element={<SalesList />} />
             <Route path="new" element={<RecordSaleForm />} />
             <Route path="history" element={<SalesPersonHistoryForm />} />
           </Route>
 
-          <Route path="models">
-            <Route path="new" element={<VehicleModelForm />} />
-          </Route>
           <Route path="automobiles">
             <Route index element={<AutomobileList />} />
             <Route path="new" element={<AutomobileForm />} />

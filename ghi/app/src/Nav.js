@@ -26,7 +26,7 @@ function Nav() {
                 aria-current="page"
                 to="/manufacturers/new"
               >
-                Create a Manufacturer
+                Manufacturer Form
               </NavLink>
             </li>
             <li className="nav-item">
@@ -35,17 +35,17 @@ function Nav() {
                 aria-current="page"
                 to="/manufacturers"
               >
-                Show a List of Manufacturers
+                Manufacturers
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/model/new">
-                Create a Vehicle Model
+              <NavLink className="nav-link" aria-current="page" to="/models/new">
+                Vehicle Model Form
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/models">
-                Show a List of Vehicle Models
+                Vehicle Models
               </NavLink>
             </li>
             <li className="nav-item">
@@ -54,7 +54,7 @@ function Nav() {
                 aria-current="page"
                 to="/salesperson/new"
               >
-                Add a Sales Person
+                SalesPerson Form
               </NavLink>
             </li>
             <li className="nav-item">
@@ -63,7 +63,7 @@ function Nav() {
                 aria-current="page"
                 to="/customer/new"
               >
-                Add a potential customer
+                Customer Form
               </NavLink>
             </li>
             <li className="nav-item">
@@ -106,10 +106,46 @@ function Nav() {
               <NavLink
                 className="nav-link"
                 aria-current="page"
-                to="/automobile/new"
+                to="/automobiles/new"
               >
                 Create an Automobile in Inventory
               </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/services/technician"
+              >
+                Add a Technician
+              </NavLink>
+              <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/services/appointments"
+              >
+                Appointment List
+              </NavLink>
+              <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/services/appointments/new"
+              >
+                Enter an Appointment
+              </NavLink>
+              <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/services/appointments/history"
+              >
+                Appointment History
+              </NavLink>
+            </li>
+            </li>
+            </li>
             </li>
           </ul>
         </div>
