@@ -62,11 +62,14 @@ def api_appointments(request):
             technician = Technician.objects.get(employee_number=employee_number)
             content["technician"] = technician
 
-            automobile_vin = content["vin"]
-            inventory_venhicle = AutomobileVO.objects.get(vin=automobile_vin)
-            inventory_vin = inventory_venhicle.vin
-            if automobile_vin == inventory_vin:
-                content["is_vip"] = "VIP"
+            try:
+                automobile_vin = content["vin"]
+                inventory_venhicle = AutomobileVO.objects.get(vin=automobile_vin)
+                inventory_vin = inventory_venhicle.vin
+                if automobile_vin == inventory_vin:
+                    content["is_vip"] = "VIP"
+            except:
+                content["is_vip"] = None
 
             appointment = Appointment.objects.create(**content)
             return JsonResponse(
@@ -111,17 +114,16 @@ def api_appointment_details(request, vin):
             response.status_code = 404
             return response
     else:
-        content = json.loads(request.body)
         try:
-            appointment = Appointment.objects.get(vin=vin)
-            if appointment.is_finished == False:
-                appointment.is_finished = content["is_finished"]
-                appointment.save()
-                return JsonResponse(
-                    appointment,
-                    encoder=AppointmentEncoder,
-                    safe=False,
-                )
+            content = {"is_finished": True}
+            Appointment.objects.filter(vin=vin).update(**content)
+
+
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentEncoder,
+                safe=False,
+            )
         except Appointment.DoesNotExist:
             response = JsonResponse({"message": "Appointment does not exist."})
             response.status_code = 404

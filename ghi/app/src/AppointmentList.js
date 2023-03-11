@@ -50,6 +50,7 @@ function AppointmentList() {
     const response = await fetch(`http://localhost:8080/api/appointments/${vin}/`, {
       method: 'PUT',
     });
+
     if (response.ok) {
       getAppointments();
     }
@@ -62,7 +63,7 @@ function AppointmentList() {
     <table className="table table-striped">
       <thead>
         <tr>
-          <th>VIP</th>
+          <th></th>
           <th>VIN</th>
           <th>Customer Name</th>
           <th>Date and Time</th>

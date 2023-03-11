@@ -7,7 +7,8 @@ function AppointmentForm() {
     customer_name: '',
     date_time: '',
     technician: '',
-    reason: ''
+    reason: '',
+    is_vip: '',
   });
 
   const getTechnician = async () => {
@@ -40,7 +41,8 @@ function AppointmentForm() {
             customer_name: '',
             date_time: '',
             technician: '',
-            reason: ''
+            reason: '',
+            is_vip: '',
       });
     }
   }
@@ -61,7 +63,7 @@ function AppointmentForm() {
           <h1>Enter a service appointment </h1>
           <form onSubmit={handleSubmit} id="create-vehicle-form">
             <div className="form-floating mb-3">
-              <input onChange={handleFormChange} value={formData.vin} placeholder="vin" required type="text" name="vin" id="vin" className="form-control" />
+              <input onChange={handleFormChange} value={formData.vin} maxLength="17" placeholder="vin" required type="text" name="vin" id="vin" className="form-control" />
               <label htmlFor="vin">VIN Number</label>
             </div>
             <div className="form-floating mb-3">
