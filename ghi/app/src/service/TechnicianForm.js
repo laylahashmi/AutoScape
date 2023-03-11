@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
 
+
 function TechnicianForm() {
   const [formData, setFormData] = useState({
     name: '',
     employee_number: ''
   })
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const technicianUrl = 'http://localhost:8080/api/technicians/';
+
 
     const fetchConfig = {
       method: "post",
@@ -18,8 +21,9 @@ function TechnicianForm() {
         'Content-Type': 'application/json',
       },
     };
-    console.log(formData)
+
     const response = await fetch(technicianUrl, fetchConfig);
+
 
     if (response.ok) {
       setFormData({
@@ -29,6 +33,8 @@ function TechnicianForm() {
     }
   }
 
+
+
   const handleFormChange = (e) => {
     const value = e.target.value;
     const inputName = e.target.name;
@@ -37,6 +43,9 @@ function TechnicianForm() {
       [inputName]: value
     });
   }
+
+
+
 
   return (
     <div className="row">

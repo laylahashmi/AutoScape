@@ -1,21 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
+import Nav from "./Nav";
+
 import VehicleModelForm from './inventory/VehicleModelForm';
 import AutomobileList from './inventory/AutomobileList';
 import AutomobileForm from './inventory/AutomobileForm';
 import ManufacturerList from "./inventory/manufacturerListForm";
 import VehicleModelList from "./inventory/vehicleModelsList";
 import CreateManufacturerForm from "./inventory/createManufacturerForm";
+
 import TechnicianForm from './service/TechnicianForm';
 import AppointmentList from './service/AppointmentList.js';
 import AppointmentForm from './service/AppointmentForm';
 import AppointmentHistory from './service/AppointmentHistory';
-import Nav from "./Nav";
+
 import SalesPersonForm from "./sales/salesPersonForm";
 import CustomerForm from "./sales/customerForm";
 import SalesList from "./sales/salesList";
 import RecordSaleForm from "./sales/createNewRecordSale";
 import SalesPersonHistoryForm from "./sales/salesPersonHistory";
+
+
 
 
 
