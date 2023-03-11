@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 function AppointmentForm() {
   const [technicians, setTechnician] = useState([]);
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ function AppointmentForm() {
     is_vip: '',
   });
 
+
+
   const getTechnician = async () => {
     const response = await fetch('http://localhost:8080/api/technicians/');
     if (response.ok) {
@@ -19,9 +22,12 @@ function AppointmentForm() {
     }
   }
 
+
   useEffect(() => {
     getTechnician();
   }, []);
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,7 +39,8 @@ function AppointmentForm() {
             'Content-Type': 'application/json',
         },
     };
-    console.log(formData)
+
+
     const response = await fetch(appointmentUrl, fetchConfig);
     if (response.ok) {
         setFormData({
@@ -47,6 +54,8 @@ function AppointmentForm() {
     }
   }
 
+
+
   const handleFormChange = (event) => {
     const inputName = event.target.name;
     const value = event.target.value;
@@ -55,6 +64,8 @@ function AppointmentForm() {
       [inputName]: value
     });
   }
+
+
 
   return (
     <div className="row">

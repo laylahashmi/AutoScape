@@ -31,6 +31,7 @@ def api_technicians(request):
             return response
 
 
+
 @require_http_methods(["DELETE"])
 def api_technician_details(request, employee_number):
     if request.method == "DELETE":
@@ -128,6 +129,7 @@ def api_appointment_details(request, vin):
             response = JsonResponse({"message": "Appointment does not exist."})
             response.status_code = 404
             return response
+
 
 
 @require_http_methods(["GET"])

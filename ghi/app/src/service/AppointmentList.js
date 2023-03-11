@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 
+
+
 function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
   const [automobiles, setAutomobile] = useState([]);
+
 
 
   const getAppointments = async () => {
@@ -20,6 +23,8 @@ function AppointmentList() {
   }, []);
 
 
+
+
   const getAutomobiles = async () => {
     const response = await fetch('http://localhost:8080/api/automobilevos/');
 
@@ -29,10 +34,11 @@ function AppointmentList() {
     }
   }
 
-
   useEffect(() => {
     getAutomobiles();
   }, [])
+
+
 
 
   const handleCancellation = async (vin) => {
@@ -40,10 +46,12 @@ function AppointmentList() {
       method: 'DELETE',
     });
 
+
     if (response.ok) {
       getAppointments();
     }
   };
+
 
 
   const handleCompletion = async (vin) => {

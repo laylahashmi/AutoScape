@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+
 function AppointmentHistory() {
   const [appointments, setAppointments] = useState([]);
   const [filterTerm, setFilterTerm] = useState("");
@@ -14,18 +15,25 @@ function AppointmentHistory() {
     }
   };
 
+
   useEffect(() => {
     getAppointments();
   }, []);
+
+
 
   const handleFilterChange = (e) => {
     setFilterTerm(e.target.value);
   };
 
+
+
   const handleSearch = (e) => {
     setSearch(filterTerm);
 
   };
+
+
 
   return (
     <>

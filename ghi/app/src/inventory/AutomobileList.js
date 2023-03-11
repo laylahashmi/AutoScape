@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 
+
 function AutomobileList() {
   const [autos, setAutos] = useState([]);
+
+
 
   const getAutos = async () => {
     const response = await fetch('http://localhost:8100/api/automobiles/');
@@ -12,9 +15,13 @@ function AutomobileList() {
     }
   };
 
+
+
   useEffect(() => {
     getAutos();
   }, []);
+
+
 
   const handleDelete = async (vin) => {
     const response = await fetch(`http://localhost:8100/api/automobiles/${vin}/`, {
@@ -25,6 +32,8 @@ function AutomobileList() {
       getAutos();
     }
   };
+
+
 
   return (
     <>
