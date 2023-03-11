@@ -56,6 +56,26 @@ function Nav() {
               <NavLink
                 className="nav-link"
                 aria-current="page"
+                to="/automobiles"
+              >
+                Automobiles
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/automobiles/new"
+              >
+               Create Automobile
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
                 to="/salesperson/new"
               >
                 SalesPerson Form
@@ -78,7 +98,7 @@ function Nav() {
                 aria-current="page"
                 to="/salesrecord/"
               >
-                List all sale records
+                Salesrecords
               </NavLink>
             </li>
 
@@ -88,7 +108,7 @@ function Nav() {
                 aria-current="page"
                 to="/salesrecord/new"
               >
-                Create a sale record
+                Salesrecord Form
               </NavLink>
             </li>
 
@@ -98,27 +118,7 @@ function Nav() {
                 aria-current="page"
                 to="/salesrecord/history"
               >
-                Sale person history
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                aria-current="page"
-                to="/automobiles"
-              >
-                Show a List of Automobiles in inventory
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                aria-current="page"
-                to="/automobiles/new"
-              >
-                Create an Automobile in Inventory
+                Sales Person History
               </NavLink>
             </li>
 
@@ -128,7 +128,7 @@ function Nav() {
                 aria-current="page"
                 to="/services/technician"
               >
-                Add a Technician
+                Add Technician
               </NavLink>
               </li>
 
@@ -138,7 +138,7 @@ function Nav() {
                 aria-current="page"
                 to="/services/appointments"
               >
-                Appointment List
+                Appointments
               </NavLink>
               </li>
 
@@ -148,7 +148,7 @@ function Nav() {
                 aria-current="page"
                 to="/services/appointments/new"
               >
-                Enter an Appointment
+                Create Appointment
               </NavLink>
               </li>
 
@@ -158,7 +158,7 @@ function Nav() {
                 aria-current="page"
                 to="/services/appointments/history"
               >
-                Appointment History
+                Service History
               </NavLink>
             </li>
 
